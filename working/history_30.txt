@@ -1,0 +1,30 @@
+  524  ls
+  525  cd assignments/
+  526  ls
+  527  cd UNIX_Assignment/
+  528  ls
+  529  for i in snp_position.txt fang_et_al_genotypes.txt ; do echo "number of lines at: $(wc -l $i)"; echo  "numbers of columns : $(awk -F "\t" '{print NF; exit}' $i) $i"; echo "filesize: $(du -h $i)"; echo "idenity any ASCII and non-ASCII characters:" $(file $i); done
+  530  ls
+  531  mkdir working
+  532  grep -E "(ZMMIL|ZMMLR|ZMMMR)" fang_et_al_genotypes.txt > working/maize_genotype.txt
+  533  grep -E "(ZMPBA|ZMPIL|ZMPJA)" fang_et_al_genotypes.txt > working/teosinte_genotype.txt
+  534  cd working/
+  535  ls
+  536  rm -r *
+  537  cd ../
+  538  grep -E "(ZMPBA|ZMPIL|ZMPJA)" fang_et_al_genotypes.txt > working/teosinte_group.txt
+  539  grep -E "(ZMMIL|ZMMLR|ZMMMR)" fang_et_al_genotypes.txt > working/maize_group.txt
+  540  head -n 1 fang_et_al_genotypes.txt > working/header_fang.txt
+  541  cd working/
+  542  cat header_fang.txt maize_group.txt> headed_maize_genotype.txt
+  543  cat header_fang.txt teosinte_group.txt > headed_teosinte_group.txt
+  544  cat header_fang.txt maize_group.txt> headed_maize_group.txt
+  545  cut -f 3-968 headed_teosinte_genotype.txt > edit_headed_teosinte_group.txt
+  546  cut -f 3-968 headed_teosinte_group.txt > edit_headed_teosinte_group.txt
+  547  cut -f 3-968 headed_maize_genotype.txt > edit_headed_maize_group.txt
+  548  history > history.txt
+  549  cat history.txt 
+  550  history -n 20 > history.txt
+  551  less history.txt 
+  552  history | tail -n 30
+  553  history | tail -n 30 > history_30.txt
